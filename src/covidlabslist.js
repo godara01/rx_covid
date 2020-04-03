@@ -45,6 +45,7 @@ const LabsList = props => {
                                 <span style={styles.inline}>
                                     <a
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                         // href={`https://www.google.com/maps/@${lab.location.coordinates[1]},${lab.location.coordinates[0]},15z`}
                                         href={`https://www.google.com/maps/search/?api=1&query=${lab.location.coordinates[1]},${lab.location.coordinates[0]}`}
                                     >

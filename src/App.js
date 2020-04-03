@@ -10,6 +10,7 @@ function App() {
     const [indiadata, setindiadata] = useState([]);
     const [data, setdata] = useState([]);
     const [dims, setdims] = useState([500, 500]);
+    const [ismobile, setmobile] = useState(false);
     useEffect(() => {
         fetch("https://api.covid19india.org/data.json")
             .then(resp => resp.json())
@@ -22,15 +23,52 @@ function App() {
     useEffect(() => {
         const width = ref.current ? ref.current.offsetWidth : 0;
         const height = ref.current ? ref.current.offsetHeight : 0;
+        if (width < 450) {
+            setmobile(true);
+        }
         console.log("width", width);
         setdims([width, height]);
-    }, [ref.current]);
+    }, []);
+
     return (
-        <Container className="App">
-            <Row style={{ padding: "2% 0" }}>
-                <Col style={{ padding: "0 5%" }}>
-                    <img src={logo} width="55px" />
+        <Container ref={ref} className="App">
+            <Row as="section" id="home" style={{ padding: "2% 0%" }}>
+                <Col md={1} xs={2} style={{ paddingLeft: "15px" }}>
+                    <img alt="logo" src={logo} width="50em" />
                 </Col>
+                <Col md={6} xs={10}>
+                    <Row>
+                        <Col
+                            as="a"
+                            href="https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="typothin"
+                            style={{ textAlign: "left", padding: "0 10px", cursor: "pointer" }}
+                        >
+                            Arogya Setu App
+                        </Col>
+                        <Col
+                            as="a"
+                            href="#links"
+                            className="typothin"
+                            style={{ textAlign: "left", padding: "0 10px", cursor: "pointer" }}
+                        >
+                            Helpful links
+                        </Col>
+                        <Col
+                            as="a"
+                            href="http://myhealthtech.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="typothin"
+                            style={{ textAlign: "left", padding: "0 10px", cursor: "pointer" }}
+                        >
+                            Self assessment
+                        </Col>
+                    </Row>
+                </Col>
+                <Col md={4} />
             </Row>
             <Row>
                 <Col>
@@ -57,10 +95,10 @@ function App() {
                             <thead>
                                 <tr>
                                     <th>State/UT</th>
-                                    <th>Confirmed</th>
-                                    <th>Active</th>
-                                    <th>Recovered</th>
-                                    <th>Deceased</th>
+                                    <th>{ismobile ? "CNFMD" : "Confirmed"}</th>
+                                    <th>{ismobile ? "ACTV" : "Active"}</th>
+                                    <th>{ismobile ? "RCVRD" : "Recovered"}</th>
+                                    <th>{ismobile ? "DCSD" : "Deceased"}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -83,24 +121,59 @@ function App() {
                     <Covid19 />
                 </Col>
             </Row>
-            <Row style={{ paddingTop: "5%" }}>
-                <Col ref={ref} style={{ padding: "0 5%" }}>
+            <Row as="section" id="whatiscorona" style={{ paddingTop: "5%" }}>
+                <Col>
                     <div className="typobold">What is coronavirus ?</div>
-                    <iframe
-                        width={dims[0] * 0.8}
-                        height={dims[0] * 0.5}
-                        src="https://www.youtube.com/embed/BtN-goy9VOY"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    ></iframe>
-
+                    <div id="iframediv">
+                        <iframe
+                            title="What is coronavirus"
+                            width={dims[0] * 0.8}
+                            height={dims[0] * 0.5}
+                            src="https://www.youtube.com/embed/BtN-goy9VOY"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
                     <div className="typothin">
                         Video Credits:{" "}
                         <a href="https://www.youtube.com/channel/UCsXVk37bltHxD1rDPwtNM8Q">
                             Kurzgesagt – In a Nutshell
                         </a>
                     </div>
+                </Col>
+            </Row>
+            <Row as="section" id="links" style={{ paddingTop: "5%" }}>
+                <Col>
+                    <Row className="typobold">Helpful Links</Row>
+                    <Row>
+                        <Col sm={2} as="a" href="https://www.mohfw.gov.in/#site-awareness" className="linkscontainer">
+                            <div className="typomedium">MOHFW</div>
+                            <div className="typothin">Do's and Don'ts</div>
+                        </Col>
+                        <Col
+                            sm={2}
+                            as="a"
+                            href="https://covid.icmr.org.in/index.php/testing-facilities"
+                            className="linkscontainer"
+                        >
+                            <div className="typomedium">ICMR</div>
+                            <div className="typothin">Testing facilities across India</div>
+                        </Col>
+                        <Col sm={2} as="a" href="http://myhealthtech.org/" className="linkscontainer">
+                            <div className="typomedium">COVID19 checker</div>
+                            <div className="typothin">Self Assessment</div>
+                        </Col>
+                        <Col
+                            sm={2}
+                            as="a"
+                            href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters"
+                            className="linkscontainer"
+                        >
+                            <div className="typomedium">WHO</div>
+                            <div className="typothin">Myth Busters</div>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
         </Container>

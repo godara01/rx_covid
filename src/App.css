@@ -13,11 +13,17 @@ table {
     width: 100%;
 }
 
+a {
+    text-decoration: none !important;
+    color: black;
+}
+
 td,
 th {
     /* border: 1px solid #dddddd; */
     text-align: left;
     padding: 8px;
+    font-size: 0.9rem;
 }
 th {
     font-weight: normal;
@@ -31,11 +37,12 @@ tr:nth-child(even) {
     text-align: left;
     /* justify-content: space-evenly;
     display: flex; */
-    padding: 20px 10px;
+    padding: 20px 0px;
 }
-
+.row {
+    margin: 0px;
+}
 .indiacol {
-    background-color: beige;
     text-align: center;
     padding: 2%;
     margin: 1%;
@@ -102,14 +109,32 @@ tr:nth-child(even) {
     letter-spacing: normal;
     color: #0b2d47;
 }
-
+.linkscontainer {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 2%;
+    margin: 1%;
+}
+.linkscontainer:hover {
+    box-shadow: 0px 20px 16px 0px rgba(0, 0, 0, 0.2);
+}
 #statetable {
-    padding: 20px 10px;
+    padding: 20px 0px;
     height: 80vh;
     overflow: auto;
+    margin: 0px;
 }
 
 #labslist {
     overflow: auto;
     height: 80vh;
+}
+
+#allindiadata {
+    margin: 0px;
+}
+
+#iframediv {
+    text-align: center;
+    padding: 10px;
 }

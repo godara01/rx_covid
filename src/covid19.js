@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import fetch from "isomorphic-fetch";
 import CovidLabsList from "./covidlabslist";
-import { Container, Row, Col, Form } from "react-bootstrap";
 import SearchBar from "./Searchbar";
 import "./App.css";
 
@@ -11,7 +10,7 @@ const Covid19 = () => {
     const [empty, setempty] = useState(false);
     const submitfn = (state, labType) => {
         let url =
-            state == "India"
+            state === "India"
                 ? "http://dev.rxhealthline.com:8020/api/pathology/?tag=covid19&limit=100"
                 : `http://dev.rxhealthline.com:8020/api/pathology/?state_ut=${state}&lab_type=${labType}&tag=covid19&limit=100`;
         fetch(url)
