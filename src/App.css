@@ -1,38 +1,115 @@
+body,
+html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px;
+}
+th {
+    font-weight: normal;
+    font-family: "Poppins", sans-serif;
+}
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
 .App {
-  text-align: center;
+    text-align: left;
+    /* justify-content: space-evenly;
+    display: flex; */
+    padding: 20px 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.indiacol {
+    background-color: beige;
+    text-align: center;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 5px;
+}
+.shadealternate:nth-child(even) {
+    background: #f5f5f5;
+}
+.pointer {
+    cursor: pointer;
+}
+.typothin {
+    opacity: 0.8;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    margin: 0 auto;
+    color: #0b2d47;
+}
+.typomedium {
+    font-family: Poppins;
+    opacity: 0.8;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    margin: 0 auto;
+    color: #0b2d47;
+}
+.typoregular {
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0b2d47;
+}
+.typobold {
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0b2d47;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.typosubtitle {
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0b2d47;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#statetable {
+    padding: 20px 10px;
+    height: 80vh;
+    overflow: auto;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#labslist {
+    overflow: auto;
+    height: 80vh;
 }

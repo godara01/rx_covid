@@ -1,0 +1,196 @@
+// className="justify-content-md-center"
+// @import "compass/css3";
+$breakpoint-tablet: 1024px;
+$breakpoint-mobile: 767px;
+
+$primary-color: #f8f8f8;
+$primary-color2: #fff;
+$secondary-color: #f54746;
+$primary-text-color: #2e2e2e;
+$secondary-text-color: #0b2d47;
+$light-gray: #b7b7b7;
+$rx-red: #f54746;
+
+$outer-width: 80%;
+$inner-width: 90%;
+$container-width: 90%;
+$outer-width-mobile: 100%;
+$inner-width-mobile: 90%;
+
+@mixin mobile_width {
+    @media (max-width: $breakpoint-mobile) {
+        width: $outer-width-mobile;
+    }
+}
+@mixin whitebg {
+    background-color: $primary-color;
+}
+body,
+html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+}
+a {
+    cursor: pointer;
+}
+// hr {
+//   display: block;
+//   margin-top: 0.5em;
+//   margin-bottom: 0.5em;
+//   margin-left: 0;
+//   margin-right: auto;
+//   border: solid 3px #ffffff;
+//   opacity: 0.5;
+//   width: 50px;
+// }
+
+.searchresult {
+    // padding: 0px 3%;
+    background-color: $primary-color2;
+}
+
+.drop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: none;
+    z-index: 1000;
+    width: 120%;
+    // margin: 0 auto;
+    background-color: #fff;
+    // top: 100%;
+    box-shadow: 0px 20px 16px 0px rgba(0, 0, 0, 0.2);
+    .dropitem {
+        display: grid;
+        text-align: -webkit-center;
+        padding: 20px 0px;
+        * {
+            padding: 5%;
+        }
+    }
+}
+
+.transparentbtn {
+    position: relative;
+    padding: 0px;
+    border: none;
+    margin: 0px;
+    background-color: $primary-color;
+}
+.heading {
+    padding: 20px 10px 10px 10px;
+    // padding-top: 20px;
+    // padding-bottom: 10px;
+    height: 100%;
+}
+.heading:hover {
+    color: #ff5050;
+    font-weight: bold;
+    font-size: 11px;
+    background-color: $primary-color2;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.head {
+    padding: 0px;
+}
+.midhead {
+    padding: 15px 8px;
+    background-color: #fe6a6c;
+    border-radius: 50%;
+    color: white;
+    transition: box-shadow 0.3;
+    width: auto;
+    height: min-content;
+    @media (max-width: $breakpoint-mobile) {
+        padding: 15px 8px;
+        background-color: #f8f8f8;
+        border-radius: 50%;
+        color: black;
+        transition: box-shadow 0.3;
+        width: auto;
+        height: min-content;
+    }
+}
+
+.drophover:hover {
+    background-color: #ffecec;
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.dropShadow:jover {
+    box-shadow: 0px 20px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.pulseButton {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: none;
+    box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+    border-radius: 50%;
+    background-color: #f54746;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    -webkit-animation: pulse 1.25s 10 cubic-bezier(0.66, 0, 0, 1);
+    -moz-animation: pulse 1.25s 10 cubic-bezier(0.66, 0, 0, 1);
+    -ms-animation: pulse 1.25s 10 cubic-bezier(0.66, 0, 0, 1);
+    animation: pulse 1.25s 10 cubic-bezier(0.66, 0, 0, 1);
+}
+.pulseButton:hover {
+    -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    animation: none;
+}
+
+@-webkit-keyframes pulse {
+    to {
+        box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+    }
+}
+@-moz-keyframes pulse {
+    to {
+        box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+    }
+}
+@-ms-keyframes pulse {
+    to {
+        box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+    }
+}
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+    }
+}
+
+.bar {
+    @media (min-width: $breakpoint-mobile) {
+        box-shadow: 0px 20px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.banner {
+    background-color: #f8f8f8;
+    background-image: URL("/static/covid19_small.png");
+    min-height: 50vh;
+    // backgroundAttachment: "fixed",
+    background-position: right;
+    background-repeat: no-repeat;
+    @media (max-width: $breakpoint-mobile) {
+        // background-image: none !important;
+        background-position: -80% -40% !important;
+        // background-size: 90%;
+    }
+}
