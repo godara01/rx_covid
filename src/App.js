@@ -4,7 +4,8 @@ import "./App.css";
 import fetch from "isomorphic-fetch";
 import Covid19 from "./covid19";
 import { Container, Row, Col } from "react-bootstrap";
-
+import Contact from "./contact";
+import Helpline from "./helpline";
 function App() {
     const ref = useRef(null);
     const [indiadata, setindiadata] = useState([]);
@@ -13,9 +14,9 @@ function App() {
     const [ismobile, setmobile] = useState(false);
     useEffect(() => {
         fetch("https://api.covid19india.org/data.json")
-            .then(resp => resp.json())
-            .then(res => res.statewise)
-            .then(result => {
+            .then((resp) => resp.json())
+            .then((res) => res.statewise)
+            .then((result) => {
                 setindiadata(result[0]);
                 setdata(result.slice(1, result.length));
             });
@@ -33,11 +34,14 @@ function App() {
     return (
         <Container ref={ref} className="App">
             <Row as="section" id="home" style={{ padding: "2% 0%" }}>
-                <Col md={1} xs={2} style={{ paddingLeft: "15px" }}>
+                <Col md={1} xs={2} style={{ paddingLeft: "15px", textAlign: "center" }}>
                     <img alt="logo" src={logo} width="50em" />
+                    <div className="typothin" style={{ fontSize: "12px" }}>
+                        RxHealthline
+                    </div>
                 </Col>
                 <Col md={6} xs={10}>
-                    <Row>
+                    <Row style={{ height: "100%", alignContent: "center" }}>
                         <Col
                             as="a"
                             href="https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu"
@@ -58,13 +62,11 @@ function App() {
                         </Col>
                         <Col
                             as="a"
-                            href="http://myhealthtech.org/"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="#helpline"
                             className="typothin"
                             style={{ textAlign: "left", padding: "0 10px", cursor: "pointer" }}
                         >
-                            Self assessment
+                            State Helplines
                         </Col>
                     </Row>
                 </Col>
@@ -122,13 +124,13 @@ function App() {
                 </Col>
             </Row>
             <Row as="section" id="whatiscorona" style={{ paddingTop: "5%" }}>
-                <Col>
+                <Col md={6} sm={12}>
                     <div className="typobold">What is coronavirus ?</div>
                     <div id="iframediv">
                         <iframe
                             title="What is coronavirus"
-                            width={dims[0] * 0.8}
-                            height={dims[0] * 0.5}
+                            width={dims[0] * 0.4}
+                            height={dims[0] * 0.3}
                             src="https://www.youtube.com/embed/BtN-goy9VOY"
                             frameBorder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -141,6 +143,9 @@ function App() {
                             Kurzgesagt – In a Nutshell
                         </a>
                     </div>
+                </Col>
+                <Col>
+                    <Contact />
                 </Col>
             </Row>
             <Row as="section" id="links" style={{ paddingTop: "5%" }}>
@@ -172,6 +177,36 @@ function App() {
                         >
                             <div className="typomedium">WHO</div>
                             <div className="typothin">Myth Busters</div>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
+            <Row as="section" id="helpline" style={{ paddingTop: "5%" }}>
+                <Col>
+                    <Row className="typobold">Helpline Numbers</Row>
+                    <Row>
+                        <Col>
+                            <div style={{ fontWeight: "bold", padding: "20px 0" }}>
+                                Central Helpline Number for corona-virus: - +91-11-23978046
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style={{ fontWeight: "bold" }}>State/UT</th>
+                                        <th style={{ fontWeight: "bold" }}>Helpline Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {Helpline.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <th>{item.name}</th>
+                                                <th>{item.phone}</th>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
                         </Col>
                     </Row>
                 </Col>
