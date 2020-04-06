@@ -34,8 +34,15 @@ function App() {
     return (
         <Container ref={ref} className="App">
             <Row as="section" id="home" style={{ padding: "2% 0%" }}>
-                <Col md={1} xs={2} style={{ paddingLeft: "15px", textAlign: "center" }}>
-                    <img alt="logo" src={logo} width="50em" />
+                <Col
+                    md={1}
+                    xs={2}
+                    as="a"
+                    href="http://covid19.rxhealthline.com"
+                    style={{ paddingLeft: "15px", textAlign: "center" }}
+                >
+                    <img alt="Rx Healthline" src={logo} width="50em" />
+
                     <div className="typothin" style={{ fontSize: "12px" }}>
                         RxHealthline
                     </div>
